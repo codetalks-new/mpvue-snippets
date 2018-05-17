@@ -1,0 +1,128 @@
+{
+  "mpc.page": {
+    "description": "页面配置  对应 page.json",
+    "prefix": "mpc.page",
+    "body": [
+      "{",
+      "  navigationBarBackgroundColor: \"#ffffff\",",
+      "  navigationBarTextStyle: \"black\",",
+      "  navigationBarTitleText: \"微信接口功能演示\",",
+      "  backgroundColor: \"#eeeeee\",",
+      "  backgroundTextStyle: \"light\",",
+      "  enablePullDownRefresh: false,",
+      "  disableScroll: false,",
+      "  onReachBottomDistance:50",
+      "}"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "mpc.window": {
+    "description": "Window 配置",
+    "prefix": "mpc.window",
+    "body": [
+      "{",
+      "  navigationBarBackgroundColor: \"#ffffff\",",
+      "  navigationBarTextStyle: \"black\",",
+      "  navigationBarTitleText: \"微信接口功能演示\",",
+      "  navigationStyle: \"default\",",
+      "  backgroundColor: \"#eeeeee\",",
+      "  backgroundTextStyle: \"light\",",
+      "  backgroundColorTop: \"#fffff\", // iOS only",
+      "  backgroundColorBottom: \"#fffff\", // iOS only",
+      "  enablePullDownRefresh: false,",
+      "  onReachBottomDistance:50",
+      "}"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "mpc.networkTimeout": {
+    "description": "网络超时配置",
+    "prefix": "mpc.networkTimeout",
+    "body": [
+      "{",
+      "  request: 60000, // 单位 ms,下同",
+      "  connectSocket: 60000,",
+      "  uploadFile: 60000,",
+      "  downloadFile: 60000,",
+      "}"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "mpc.tabbar": {
+    "description": "TabBar 配置",
+    "prefix": "mpc.tabbar",
+    "body": [
+      "{",
+      "  color: \"#333333\",",
+      "  selectedColor: \"#262626\",",
+      "  backgroundColor: \"#ffce09\",",
+      "  borderStyle: \"black\",",
+      "  position: \"bottom\",",
+      "  list: [",
+      "  ]",
+      "}"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "mpc.tabbar.item": {
+    "description": "TabBar 项配置",
+    "prefix": "mpc.tabbar.item",
+    "body": [
+      "{",
+      "  pagePath: \"/pages/$1/main\",",
+      "  text:\"\",",
+      "  iconPath: \"/static/images/$2\",",
+      "  selectedIconPath: \"/static/images/$3\",",
+      "}"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "mpc.nbbc": {
+    "body": "navigationBarBackgroundColor",
+    "prefix": "mpc.nbbc",
+    "scope": "javascript,typescript",
+    "description": "navigationBarBackgroundColor"
+  },
+  "mpc.nbtt": {
+    "body": "navigationBarTitleText",
+    "prefix": "mpc.nbtt",
+    "scope": "javascript,typescript",
+    "description": "navigationBarTitleText"
+  },
+  "mpc.nbts": {
+    "body": "navigationBarTextStyle",
+    "prefix": "mpc.nbts",
+    "scope": "javascript,typescript",
+    "description": "navigationBarTextStyle"
+  },
+  "mpc.bc": {
+    "body": "backgroundColor",
+    "prefix": "mpc.bc",
+    "scope": "javascript,typescript",
+    "description": "backgroundColor"
+  },
+  "mpc.bts": {
+    "body": "backgroundTextStyle",
+    "prefix": "mpc.bts",
+    "scope": "javascript,typescript",
+    "description": "backgroundTextStyle"
+  },
+  "mpc.epdr": {
+    "body": "enablePullDownRefresh",
+    "prefix": "mpc.epdr",
+    "scope": "javascript,typescript",
+    "description": "enablePullDownRefresh"
+  },
+  "mpc.ds": {
+    "body": "disableScroll",
+    "prefix": "mpc.ds",
+    "scope": "javascript,typescript",
+    "description": "disableScroll"
+  },
+  "mpc.orbd": {
+    "body": "onReachBottomDistance",
+    "prefix": "mpc.orbd",
+    "scope": "javascript,typescript",
+    "description": "onReachBottomDistance"
+  }
+}

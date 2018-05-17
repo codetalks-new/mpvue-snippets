@@ -53,14 +53,21 @@ function ensureSnippetPrefix(snippet, key) {
   }
 }
 
+function ensureSnippetDescription(snippet) {
+  if (!snippet.hasOwnProperty("description")) {
+    snippet.description = snippet.body
+  }
+}
+
 function mergeSnippetOptions(snippet, options) {
   //  value in snippet should have high priority
-  const resultObj = options || {}
+  const resultObj = Object.assign({}, options || {})
   Object.assign(resultObj, snippet)
   Object.assign(snippet, resultObj)
 }
 
 function makeSnippets(name, folder, global_options) {
+  console.info("make snippets from ", name)
   const srcPath = path.join(__dirname, name);
   if (!fs.existsSync(srcPath)) {
     console.error("Failed to find source file:", srcPath);
@@ -69,6 +76,7 @@ function makeSnippets(name, folder, global_options) {
   const srcText = fs.readFileSync(srcPath, 'utf8');
   const data = JSON.parse(srcText);
   const includesDir = path.join(__dirname, "includes", folder)
+  const options = Object.freeze(global_options)
   for (const key in data) {
     if (!data.hasOwnProperty(key)) {
       continue;
@@ -77,8 +85,9 @@ function makeSnippets(name, folder, global_options) {
     ensureSnippetPrefix(snippet, key)
     includeSnippetBody(snippet, key, includesDir)
     if (global_options) {
-      mergeSnippetOptions(snippet, global_options)
+      mergeSnippetOptions(snippet, options)
     }
+    ensureSnippetDescription(snippet)
   }
 
   const destFilePath = path.join(__dirname, '..', 'snippets', name)
@@ -90,3 +99,4 @@ function makeSnippets(name, folder, global_options) {
 makeSnippets('wx_api.json', 'wx_api', { scope: "javascript,typescript" });
 makeSnippets('mp_components.json', 'mp_components', { scope: "vue, html, vue-html, wpy" });
 makeSnippets('weui.json', 'weui', { scope: "vue,html,vue-html,wpy" });
+makeSnippets('mp_configs.json', 'mp_configs', { scope: "javascript,typescript" });

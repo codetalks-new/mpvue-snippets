@@ -24,7 +24,9 @@
       { "language": "html", "path": "./snippets/weui.json" },
       { "language": "vue-html", "path": "./snippets/weui.json" },
       { "language": "javascript", "path": "./snippets/wx_api.json" },
-      { "language": "typescript", "path": "./snippets/wx_api.json" }
+      { "language": "typescript", "path": "./snippets/wx_api.json" },
+      { "language": "javascript", "path": "./snippets/mp_configs.json" },
+      { "language": "typescript", "path": "./snippets/mp_configs.json" }
     ]
   },
     "scripts": {

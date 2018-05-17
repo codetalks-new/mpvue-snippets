@@ -1,0 +1,41 @@
+{
+  "mpc.page":{
+    "description": "页面配置  对应 page.json"
+  },
+  "mpc.window":{
+    "description": "Window 配置"
+  },
+  "mpc.networkTimeout":{
+    "description": "网络超时配置"
+  },
+  "mpc.tabbar":{
+    "description": "TabBar 配置"
+  },
+  "mpc.tabbar.item":{
+    "description": "TabBar 项配置"
+  },
+  "mpc.nbbc":{
+    "body": "navigationBarBackgroundColor"
+  },
+  "mpc.nbtt":{
+    "body": "navigationBarTitleText"
+  },
+  "mpc.nbts":{
+    "body": "navigationBarTextStyle"
+  },
+  "mpc.bc": {
+      "body": "backgroundColor"
+   },
+  "mpc.bts": {
+      "body": "backgroundTextStyle"
+   },
+  "mpc.epdr": {
+      "body": "enablePullDownRefresh"
+   },
+  "mpc.ds": {
+      "body": "disableScroll"
+   },
+  "mpc.orbd": {
+      "body": "onReachBottomDistance"
+   }
+}
