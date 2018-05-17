@@ -4,7 +4,13 @@
   "description": "mpvue 兼容的 微信小程序：API 代码片段，组件代码片段(mpvue 语法），weui 框架代码片段",
   "version": "1.0.0",
   "publisher": "banxi",
-  "icon": "https://raw.githubusercontent.com/banxi1988/mpvue-snippets/master/images/logo.png",
+  "icon": "images/logo.png",
+  "homepage": "https://github.com/banxi1988/mpvue-snippets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/banxi1988/mpvue-snippets.git"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.3.0"
   },
@@ -22,6 +28,7 @@
     ]
   },
     "scripts": {
-      "build": "node  ./snippets-src/make_snippets.js"
+      "build": "node  ./snippets-src/make_snippets.js",
+      "vscode:prepublish": "node  ./snippets-src/make_snippets.js"
     }
 }
