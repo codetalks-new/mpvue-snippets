@@ -1,8 +1,7 @@
 <view class="weui-grids">
-  <block wx:for="{{${1:grids}}}" wx:key="${2:key}">
-    <navigator url="${3:url}" class="weui-grid" hover-class="weui-grid_active">
-      <image class="weui-grid__icon" src="${4:icon}" />
-      <view class="weui-grid__label">${5:label}</view>
+    <navigator v-for="(item,index) in ${1:items}" :key="index"
+      url="${3:url}" class="weui-grid" hover-class="weui-grid_active">
+      <image class="weui-grid__icon" :src="item.${4:icon}" />
+      <view class="weui-grid__label">{{item.${5:label}}}</view>
     </navigator>
-  </block>
 </view>

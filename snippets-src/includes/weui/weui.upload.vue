@@ -15,11 +15,12 @@
                             </view>
                             <view class="weui-uploader__bd">
                                 <view class="weui-uploader__files" id="uploaderFiles">
-                                    <block wx:for="{{files}}" wx:key="*this">
-                                        <view class="weui-uploader__file" @tap="previewImage" id="{{item}}">
-                                            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-                                        </view>
-                                    </block>
+                                      <view
+                                        v-for="(file,index) in files"
+                                        :key="index"
+                                        class="weui-uploader__file" @tap="previewImage" :id="item">
+                                          <image class="weui-uploader__img" :src="item" mode="aspectFill" />
+                                      </view>
                                     <view class="weui-uploader__file">
                                         <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />
                                     </view>

@@ -18,8 +18,10 @@
         <view class="page__bd">
             <view class="weui-tab">
                 <view class="weui-navbar">
-                    <view wx:for="{{tabs}}" wx:key="*this" id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" @tap="tabClick">
-                        <view class="weui-navbar__title">{{item}}</view>
+                    <view v-for="(tab, index) in tabs" :key="index" :id="index"
+                      class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}"
+                      @tap="tabClick">
+                        <view class="weui-navbar__title">{{tab}}</view>
                     </view>
                     <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
                 </view>
@@ -34,11 +36,11 @@
 </template>
 
 <script>
-    import wepy from 'wepy';
+    import Vue from 'vue';
 
     const sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 
-    export default class Toast extends wepy.page {
+    export default class Toast extends  Vue{
 
         data = {
             tabs: ['选项一', '选项二', '选项三'],
