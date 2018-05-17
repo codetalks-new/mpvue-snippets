@@ -1,0 +1,9 @@
+<checkbox-group @change="checkboxChange">
+  <label wx:for="${1:id}">
+    <checkbox
+      value="{{${2:item}.name}}"
+      checked="{{${2:item}.checked}}"
+      name="${1:id}" />
+        {{${2:item}.value}}
+      </label>
+</checkbox-group>

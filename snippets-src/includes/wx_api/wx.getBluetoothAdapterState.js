@@ -1,0 +1,1 @@
+wx.getBluetoothAdapterState({ success: res => {} });

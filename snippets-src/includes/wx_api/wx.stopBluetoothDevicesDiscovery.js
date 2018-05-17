@@ -1,0 +1,3 @@
+wx.stopBluetoothDevicesDiscovery({
+  success: res => {}
+});

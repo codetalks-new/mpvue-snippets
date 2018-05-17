@@ -1,0 +1,1 @@
+wx.getBeacons({ success: res => {} });

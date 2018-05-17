@@ -1,0 +1,9 @@
+<radio-group class="radio-group" @change="radioChange">
+  <label class="radio" wx:for="{{${1:items}}}">
+    <radio
+      value="{{${2:item}.name}}"
+      checked="{{${2:item}.checked}}"
+      />
+    {{${2:item}.value}}
+  </label>
+</radio-group>

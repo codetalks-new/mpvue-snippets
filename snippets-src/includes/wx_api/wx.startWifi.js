@@ -1,0 +1,1 @@
+wx.startWifi({ success: res => {} });

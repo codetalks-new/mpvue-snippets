@@ -1,0 +1,1 @@
+wx.getSetting({ success: res => {} });

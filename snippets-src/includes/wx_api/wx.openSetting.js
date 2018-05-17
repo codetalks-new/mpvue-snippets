@@ -1,0 +1,1 @@
+wx.openSetting({ success: res => {} });

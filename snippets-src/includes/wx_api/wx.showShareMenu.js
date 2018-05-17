@@ -1,0 +1,1 @@
+wx.showShareMenu({ withShareTicket: true });

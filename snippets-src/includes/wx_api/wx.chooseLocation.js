@@ -1,0 +1,1 @@
+wx.chooseLocation({ success: res => {} });

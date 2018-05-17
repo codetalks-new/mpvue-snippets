@@ -1,0 +1,1 @@
+wx.onGetWifiList(res => {});

@@ -1,0 +1,1431 @@
+{
+  "wx.request": {
+    "description": "网络请求",
+    "prefix": "wx.request",
+    "body": [
+      "wx.request({",
+      "  url: '${1:url}', //开发者服务器接口地址\",",
+      "  data: '${2:data}', //请求的参数\",",
+      "  method: '${3|GET,OPTIONS, HEAD, POST, PUT, DELETE, TRACE, CONNECT|}',",
+      "  dataType: '${4:json}', //如果设为json，会尝试对返回的数据做一次 JSON.parse",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.uploadFile": {
+    "description": "文件上传",
+    "prefix": "wx.uploadFile",
+    "body": [
+      "wx.uploadFile({",
+      "  url: '${1:url}', //开发者服务器 url",
+      "  filePath: '${2:filePath}', //要上传文件资源的路径",
+      "  name: '${3:name}', //文件对应的 key , 开发者在服务器端通过这个 key 可以获取到文件二进制内容",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.downloadFile": {
+    "description": "文件下载",
+    "prefix": "wx.downloadFile",
+    "body": [
+      "wx.uploadFile({",
+      "  url: '${1:url}', // 下载资源的 url",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.connectSocket": {
+    "description": "创建Socket连接",
+    "prefix": "wx.connectSocket",
+    "body": [
+      "wx.uploadFile({",
+      "  url: '${1:url}', //开发者服务器接口地址，必须是 wss 协议，且域名必须是后台配置的合法域名",
+      "  method: '${2:GET}', //有效值：OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT",
+      "  protocols: '{{${3:protocols}}}', //子协议数组",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onSocketOpen": {
+    "description": "监听WebSocket连接打开事件",
+    "prefix": "wx.onSocketOpen",
+    "body": [
+      "wx.onSocketOpen(res => {",
+      "  console.log('WebSocket连接已打开！');",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onSocketError": {
+    "description": "监听WebSocket错误",
+    "prefix": "wx.onSocketError",
+    "body": [
+      "wx.onSocketError(res => {",
+      "  console.log('WebSocket连接打开失败，请检查！');",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.sendSocketMessage": {
+    "description": "通过 WebSocket 连接发送数据，需要先 wx.connectSocket，并在 wx.onSocketOpen 回调之后才能发送",
+    "prefix": "wx.sendSocketMessage",
+    "body": [
+      "wx.sendSocketMessage({",
+      "  data: '${1:data}', //需要发送的内容",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onSocketMessage": {
+    "description": "监听WebSocket接受到服务器的消息事件",
+    "prefix": "wx.onSocketMessage",
+    "body": [
+      "wx.onSocketMessage(res => {",
+      "  console.log('收到服务器内容：' + res.data);",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.closeSocket": {
+    "description": "关闭 WebSocket 连接",
+    "prefix": "wx.closeSocket",
+    "body": [
+      "wx.closeSocket(res => {",
+      "  console.log('WebSocket 已关闭！');",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onSocketClose": {
+    "description": "监听WebSocket关闭",
+    "prefix": "wx.onSocketClose",
+    "body": [
+      "wx.onSocketClose(res => {",
+      "  console.log('WebSocket 已关闭！');",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.chooseImage": {
+    "description": "从本地相册选择图片或使用相机拍照",
+    "prefix": "wx.chooseImage",
+    "body": [
+      "wx.chooseImage({",
+      "  count: '${1:9}', //最多可以选择的图片张数,",
+      "  success: res => {}, //返回图片的本地文件路径列表 tempFilePaths,",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.previewImage": {
+    "description": "预览图片",
+    "prefix": "wx.previewImage",
+    "body": [
+      "wx.previewImage({",
+      "  urls: '${1:urls}' //需要预览的图片链接列表,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getImageInfo": {
+    "description": "获取图片信息",
+    "prefix": "wx.getImageInfo",
+    "body": [
+      "wx.getImageInfo({",
+      "  src: '${1:src}', //图片的路径，可以是相对路径，临时文件路径，存储文件路径，网络图片路径,",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.saveImageToPhotosAlbum": {
+    "description": "保存图片到系统相册 需要用户授权 scope.writePhotosAlbum",
+    "prefix": "wx.saveImageToPhotosAlbum",
+    "body": [
+      "wx.saveImageToPhotosAlbum({",
+      "  filePath: '${1:filePath}', //图片文件路径，可以是临时文件路径也可以是永久文件路径，不支持网络图片路径,",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.login": {
+    "description": "调用接口wx.login() 获取临时登录凭证（code）",
+    "prefix": "wx.login",
+    "body": [
+      "wx.login({",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.checkSession": {
+    "description": "校验用户当前session_key是否有效",
+    "prefix": "wx.checkSession",
+    "body": [
+      "wx.checkSession({",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.authorize": {
+    "description": "提前向用户发起授权请求。调用后会立刻弹窗询问用户是否同意授权小程序使用某项功能或获取用户的某些数据，但不会实际调用对应接口。如果用户之前已经同意授权，则不会出现弹窗，直接返回成功。",
+    "prefix": "wx.authorize",
+    "body": [
+      "wx.authorize({",
+      "  scope:",
+      "    '${1|scope.userInfo,scope.userLocation,scope.address,scope.invoiceTitle,scope.werun,scope.record,scope.writePhotosAlbum,scope.camera|}',",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getUserInfo": {
+    "description": "获取用户信息，withCredentials 为 true 时需要先调用 wx.login 接口。需要用户授权 scope.userInfo",
+    "prefix": "wx.getUserInfo",
+    "body": [
+      "wx.getUserInfo({",
+      "  withCredentials: false,",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.requestPayment": {
+    "description": "发起微信支付",
+    "prefix": "wx.requestPayment",
+    "body": [
+      "wx.requestPayment({",
+      "  timeStamp: '${1:timeStamp}', //时间戳从1970年1月1日00:00:00至今的秒数,即当前的时间,",
+      "  nonceStr: '${2:nonceStr}', //随机字符串，长度为32个字符以下,",
+      "  package: '${3:package}', //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*,",
+      "  signType: 'MD5', //签名算法，暂支持 MD5,",
+      "  paySign: '${4:paySign}', //签名,具体签名方案参见小程序支付接口文档,",
+      "  success: res => {},",
+      "  fail: () => {},",
+      "  complete: () => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onShareAppMessage": {
+    "description": "在 Page 中定义 onShareAppMessage 函数，设置该页面的转发信息",
+    "prefix": "wx.onShareAppMessage",
+    "body": [
+      "onShareAppMessage() {",
+      "  return {",
+      "    title: '${1:自定义转发标题}',",
+      "    path: '${2:/pages/index}',",
+      "    imageUrl: '${3:url}',",
+      "    success: res => {},",
+      "    fail: () => {},",
+      "    complete: () => {}",
+      "  };",
+      "}"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showShareMenu": {
+    "description": "显示当前页面的转发按钮",
+    "prefix": "wx.showShareMenu",
+    "body": [
+      "wx.showShareMenu({ withShareTicket: true });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.hideShareMenu": {
+    "description": "隐藏当前页面的转发按钮",
+    "prefix": "wx.hideShareMenu",
+    "body": [
+      "wx.hideShareMenu();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.updateShareMenu": {
+    "description": "更新转发属性",
+    "prefix": "wx.updateShareMenu",
+    "body": [
+      "wx.updateShareMenu({ withShareTicket: true });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getShareInfo": {
+    "description": "获取转发详细信息",
+    "prefix": "wx.getShareInfo",
+    "body": [
+      "wx.getShareInfo({ withShareTicket: true });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.chooseAddress": {
+    "description": "调起用户编辑收货地址原生界面，并在编辑完成后返回用户选择的地址 需要用户授权 scope.address",
+    "prefix": "wx.chooseAddress",
+    "body": [
+      "wx.chooseAddress({",
+      "  success: function(res) {",
+      "    console.log(res.userName);",
+      "    console.log(res.postalCode);",
+      "    console.log(res.provinceName);",
+      "    console.log(res.cityName);",
+      "    console.log(res.countyName);",
+      "    console.log(res.detailInfo);",
+      "    console.log(res.nationalCode);",
+      "    console.log(res.telNumber);",
+      "  }",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.addCard": {
+    "description": "批量添加卡券",
+    "prefix": "wx.addCard",
+    "body": [
+      "wx.addCard({",
+      "  cardList: [",
+      "    {",
+      "      cardId: '',",
+      "      cardExt: '{\"code\": \"\", \"openid\": \"\", \"timestamp\": \"\", \"signature\":\"\"}'",
+      "    }",
+      "  ],",
+      "  success: function(res) {",
+      "    console.log(res.cardList); // 卡券添加结果",
+      "  }",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.openCard": {
+    "description": "查看微信卡包中的卡券",
+    "prefix": "wx.openCard",
+    "body": [
+      "wx.openCard({",
+      "  //需要打开的卡券列表，列表内参数详见openCard 请求对象说明",
+      "  cardList: [",
+      "    {",
+      "      cardId: '',",
+      "      code: ''",
+      "    }",
+      "  ],",
+      "  success: function(res) {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.openSetting": {
+    "description": "调起客户端小程序设置界面，返回用户设置的操作结果",
+    "prefix": "wx.openSetting",
+    "body": [
+      "wx.openSetting({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getSetting": {
+    "description": "获取用户的当前设置",
+    "prefix": "wx.getSetting",
+    "body": [
+      "wx.getSetting({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getWeRunData": {
+    "description": "获取用户过去三十天微信运动步数，需要先调用 wx.login 接口 需要用户授权 scope.werun",
+    "prefix": "wx.getWeRunData",
+    "body": [
+      "wx.getWeRunData({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.navigateToMiniProgram": {
+    "description": "打开同一公众号下关联的另一个小程序。（注：必须是同一公众号下，而非同个 open 账号下）",
+    "prefix": "wx.navigateToMiniProgram",
+    "body": [
+      "wx.navigateToMiniProgram({",
+      "  appId: '${1:appId}', //要打开的小程序 appId,",
+      "  path: '', //打开的页面路径，如果为空则打开首页,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.navigateBackMiniProgram": {
+    "description": "返回到上一个小程序，只有在当前小程序是被其他小程序打开时可以调用成功",
+    "prefix": "wx.navigateBackMiniProgram",
+    "body": [
+      "wx.navigateBackMiniProgram({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.chooseInvoiceTitle": {
+    "description": "选择用户的发票抬头 要用户授权 scope.invoiceTitle",
+    "prefix": "wx.chooseInvoiceTitle",
+    "body": [
+      "wx.chooseInvoiceTitle({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.checkIsSupportSoterAuthentication": {
+    "description": "获取本机支持的 SOTER 生物认证方式",
+    "prefix": "wx.checkIsSupportSoterAuthentication",
+    "body": [
+      "wx.checkIsSupportSoterAuthentication({",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startSoterAuthentication": {
+    "description": "开始 SOTER 生物认证",
+    "prefix": "wx.startSoterAuthentication",
+    "body": [
+      "wx.startSoterAuthentication({",
+      "  requestAuthModes: '${1:requestAuthModes}', //请求使用的可接受的生物认证方式,",
+      "  challenge: '${2:requestAuthModes}', //挑战因子。挑战因子为调用者为此次生物鉴权准备的用于签名的字符串关键识别信息，将作为result_json的一部分，供调用者识别本次请求,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.checkIsSoterEnrolledInDevice": {
+    "description": "获取设备内是否录入如指纹等生物信息的接口",
+    "prefix": "wx.checkIsSoterEnrolledInDevice",
+    "body": [
+      "wx.checkIsSoterEnrolledInDevice({",
+      "  checkAuthMode: '${1|fingerPrint,facial,speech|}', //认证方式,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getExtConfig": {
+    "description": "获取第三方平台自定义的数据字段。",
+    "prefix": "wx.getExtConfig",
+    "body": [
+      "wx.getExtConfig({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getExtConfigSync": {
+    "description": "获取第三方平台自定义的数据字段的同步接口",
+    "prefix": "wx.getExtConfigSync",
+    "body": [
+      "wx.getExtConfigSync();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showToast": {
+    "description": "显示消息提示框",
+    "prefix": "wx.showToast",
+    "body": [
+      "wx.showToast({",
+      "  title: '${1:title}', //提示的内容,",
+      "  icon: '${2|success,loading,none|}', //图标,",
+      "  duration: 2000, //延迟时间,",
+      "  mask: true, //显示透明蒙层，防止触摸穿透,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showLoading": {
+    "description": "显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框",
+    "prefix": "wx.showLoading",
+    "body": [
+      "wx.showLoading({",
+      "  title: '${1:Loading...}', //提示的内容,",
+      "  mask: true, //显示透明蒙层，防止触摸穿透,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.hideToast": {
+    "description": "隐藏消息提示框",
+    "prefix": "wx.hideToast",
+    "body": [
+      "wx.hideToast();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.hideLoading": {
+    "description": "隐藏loading提示框",
+    "prefix": "wx.hideLoading",
+    "body": [
+      "wx.hideLoading();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showModal": {
+    "description": "​显示模态弹窗",
+    "prefix": "wx.showModal",
+    "body": [
+      "wx.showModal({",
+      "  title: '${1:提示}', //提示的标题,",
+      "  content: '${2:content}', //提示的内容,",
+      "  showCancel: true, //是否显示取消按钮,",
+      "  cancelText: '${3:取消}', //取消按钮的文字，默认为取消，最多 4 个字符,",
+      "  cancelColor: '${4:#000000}', //取消按钮的文字颜色,",
+      "  confirmText: '${5:确定}', //确定按钮的文字，默认为取消，最多 4 个字符,",
+      "  confirmColor: '${6:#3CC51F}', //确定按钮的文字颜色,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showActionSheet": {
+    "description": "​​显示操作菜单",
+    "prefix": "wx.showActionSheet",
+    "body": [
+      "wx.showActionSheet({",
+      "  itemList: '${1:itemList}', //按钮的文字数组，数组长度最大为6个,",
+      "  itemColor: '${2:#000000}', //按钮的文字颜色,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setNavigationBarTitle": {
+    "description": "​​动态设置当前页面的标题",
+    "prefix": "wx.setNavigationBarTitle",
+    "body": [
+      "wx.setNavigationBarTitle({ title: '${1:title}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showNavigationBarLoading": {
+    "description": "在当前页面显示导航条加载动画",
+    "prefix": "wx.showNavigationBarLoading",
+    "body": [
+      "wx.showNavigationBarLoading();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.hideNavigationBarLoading": {
+    "description": "隐藏导航条加载动画",
+    "prefix": "wx.hideNavigationBarLoading",
+    "body": [
+      "wx.hideNavigationBarLoading();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setNavigationBarColor": {
+    "description": "​​设置导航条颜色",
+    "prefix": "wx.setNavigationBarColor",
+    "body": [
+      "wx.setNavigationBarColor({",
+      "  frontColor: '${1:#ffffff}', //前景颜色值，包括按钮、标题、状态栏的颜色，仅支持 #ffffff 和 #000000,",
+      "  backgroundColor: '${2:#ff0000}', //背景颜色值，有效值为十六进制颜色,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setTabBarBadge": {
+    "description": "​​为 tabBar 某一项的右上角添加文本",
+    "prefix": "wx.setTabBarBadge",
+    "body": [
+      "wx.setTabBarBadge({",
+      "  index: 0, //tabBar的哪一项，从左边算起,",
+      "  text: '${2:1}' //显示的文本，超过 3 个字符则显示成“…”,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.removeTabBarBadge": {
+    "description": "​​移除 tabBar 某一项右上角的文本",
+    "prefix": "wx.removeTabBarBadge",
+    "body": [
+      "wx.removeTabBarBadge({",
+      "  index: 0 //tabBar的哪一项，从左边算起,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showTabBarRedDot": {
+    "description": "​​显示 tabBar 某一项的右上角的红点",
+    "prefix": "wx.showTabBarRedDot",
+    "body": [
+      "wx.showTabBarRedDot({",
+      "  index: 0 //tabBar的哪一项，从左边算起,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.hideTabBarRedDot": {
+    "description": "​​隐藏 tabBar 某一项的右上角的红点",
+    "prefix": "wx.hideTabBarRedDot",
+    "body": [
+      "wx.hideTabBarRedDot({",
+      "  index: 0 //tabBar的哪一项，从左边算起,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setTabBarStyle": {
+    "description": "​​动态设置 tabBar 的整体样式",
+    "prefix": "wx.setTabBarStyle",
+    "body": [
+      "wx.setTabBarStyle({",
+      "  color: '${1:#FF0000}', //tab 上的文字默认颜色,",
+      "  selectedColor: '${2:#00FF00}', //tab 上的文字选中时的颜色,",
+      "  backgroundColor: '${3:#0000FF}', //tab 的背景色,",
+      "  borderStyle: '${4:white}' //tabbar上边框的颜色， 仅支持 black/white,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setTabBarItem": {
+    "description": "​​动态设置 tabBar 某一项的内容",
+    "prefix": "wx.setTabBarItem",
+    "body": [
+      "wx.setTabBarItem({",
+      "  index: 0, //tabBar的哪一项，从左边算起,",
+      "  text: '${1:text}', //tab 上按钮文字,",
+      "  iconPath: '${2:iconPath}', //图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，当 postion 为 top 时，此参数无效，不支持网络图片,",
+      "  selectedIconPath: '${3:selectedIconPath}' //选中时的图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px ，当 postion 为 top 时，此参数无效,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.showTabBar": {
+    "description": "​​显示 tabBar",
+    "prefix": "wx.showTabBar",
+    "body": [
+      "wx.showTabBar({",
+      "  animation: true //是否需要动画效果",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.hideTabBar": {
+    "description": "​​隐藏 tabBar",
+    "prefix": "wx.hideTabBar",
+    "body": [
+      "wx.hideTabBar({",
+      "  animation: true //是否需要动画效果",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setTopBarText": {
+    "description": "​​动态设置置顶栏文字内容，只有当前小程序被置顶时能生效",
+    "prefix": "wx.setTopBarText",
+    "body": [
+      "wx.setTopBarText({ text: '${1:text}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.navigateTo": {
+    "description": "保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面。",
+    "prefix": "wx.navigateTo",
+    "body": [
+      "wx.navigateTo({ url: '${1:url}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.redirectTo": {
+    "description": "关闭当前页面，跳转到应用内的某个页面",
+    "prefix": "wx.redirectTo",
+    "body": [
+      "wx.redirectTo({ url: '${1:url}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.reLaunch": {
+    "description": "关闭所有页面，打开到应用内的某个页面",
+    "prefix": "wx.reLaunch",
+    "body": [
+      "wx.reLaunch({ url: '${1:url}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.switchTab": {
+    "description": "跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面",
+    "prefix": "wx.switchTab",
+    "body": [
+      "wx.switchTab({ url: '${1:url}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.navigateBack": {
+    "description": "关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages()) 获取当前的页面栈，决定需要返回几层",
+    "prefix": "wx.navigateBack",
+    "body": [
+      "wx.navigateBack({",
+      "  delta: 1 //返回的页面数，如果 delta 大于现有页面数，则返回到首页,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.createAnimation": {
+    "description": "创建一个动画实例animation。调用实例的方法来描述动画。最后通过动画实例的export方法导出动画数据传递给组件的animation属性",
+    "prefix": "wx.createAnimation",
+    "body": [
+      "wx.createAnimation({});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.pageScrollTo": {
+    "description": "将页面滚动到目标位置",
+    "prefix": "wx.pageScrollTo",
+    "body": [
+      "wx.pageScrollTo({",
+      "  scrollTop: 0, //滚动到页面的目标位置（单位px）,",
+      "  duration: 300 //滚动动画的时长，默认300ms，单位 ms,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startPullDownRefresh": {
+    "description": "开始下拉刷新，调用后触发下拉刷新动画，效果与用户手动下拉刷新一致",
+    "prefix": "wx.startPullDownRefresh",
+    "body": [
+      "wx.startPullDownRefresh({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopPullDownRefresh": {
+    "description": "停止下拉刷新",
+    "prefix": "wx.stopPullDownRefresh",
+    "body": [
+      "wx.stopPullDownRefresh();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.makePhoneCall": {
+    "description": "拨打电话",
+    "prefix": "wx.makePhoneCall",
+    "body": [
+      "wx.makePhoneCall({ phoneNumber: '${1:00000000}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getLocation": {
+    "description": "获取当前的地理位置、速度。当用户离开小程序后，此接口无法调用；当用户点击“显示在聊天顶部”时，此接口可继续调用",
+    "prefix": "wx.getLocation",
+    "body": [
+      "wx.getLocation({",
+      "  type: '${1|wgs84,gcj02|}', //默认为 wgs84 返回 gps 坐标，gcj02 返回可用于wx.openLocation的坐标,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.chooseLocation": {
+    "description": "打开地图选择位置 需要用户授权 scope.userLocation",
+    "prefix": "wx.chooseLocation",
+    "body": [
+      "wx.chooseLocation({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.openLocation": {
+    "description": "使用微信内置地图查看位置 需要用户授权 scope.userLocation",
+    "prefix": "wx.openLocation",
+    "body": [
+      "wx.openLocation({",
+      "  latitude: '${1:latitude}', //纬度，范围为-90~90，负数表示南纬,",
+      "  longitude: '${2:longitude}', //经度，范围为-180~180，负数表示西经,",
+      "  scale: 15, //缩放比例，范围5~18,",
+      "  name: '${4:name}', //位置名,",
+      "  address: '${5:address}', //地址的详细说明,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setStorage": {
+    "description": "将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口",
+    "prefix": "wx.setStorage",
+    "body": [
+      "wx.setStorage({",
+      "  key: '${1:key}',",
+      "  value: '${2:value}'",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setStorageSync": {
+    "description": "将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口",
+    "prefix": "wx.setStorageSync",
+    "body": [
+      "wx.setStorageSync({",
+      "  key: '${1:key}',",
+      "  value: '${2:value}'",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getStorage": {
+    "description": "从本地缓存中异步获取指定 key 对应的内容",
+    "prefix": "wx.getStorage",
+    "body": [
+      "wx.getStorage({",
+      "  key: '${key:key}',",
+      "  success: (res) => {",
+      "    console.log(res.data)",
+      "  },",
+      "  fail: () => { },",
+      "  complete: () => { }",
+      "})"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getStorageSync": {
+    "description": "从本地缓存中同步获取指定 key 对应的内容",
+    "prefix": "wx.getStorageSync",
+    "body": [
+      "wx.getStorageSync({ key: '${1:key}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getStorageInfo": {
+    "description": "异步获取当前storage的相关信息",
+    "prefix": "wx.getStorageInfo",
+    "body": [
+      "wx.getStorageInfo({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getStorageInfoSync": {
+    "description": "同步获取当前storage的相关信息",
+    "prefix": "wx.getStorageInfoSync",
+    "body": [
+      "wx.getStorageInfoSync();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.removeStorage": {
+    "description": "从本地缓存中异步移除指定 key",
+    "prefix": "wx.removeStorage",
+    "body": [
+      "wx.removeStorage({",
+      "  key: '${1:key}',",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.removeStorageSync": {
+    "description": "从本地缓存中同步移除指定 key",
+    "prefix": "wx.removeStorageSync",
+    "body": [
+      "wx.removeStorageSync({ key: '${1:key}' });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.clearStorage": {
+    "description": "清理本地数据缓存",
+    "prefix": "wx.clearStorage",
+    "body": [
+      "wx.clearStorage();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.clearStorageSync": {
+    "description": "同步清理本地数据缓存",
+    "prefix": "wx.clearStorageSync",
+    "body": [
+      "wx.clearStorageSync();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.saveFile": {
+    "description": "保存文件到本地。注意：saveFile 会把临时文件移动，因此调用成功后传入的 tempFilePath 将不可用",
+    "prefix": "wx.saveFile",
+    "body": [
+      "wx.saveFile({",
+      "  tempFilePath: '${1:tempFilePath}', //需要保存的文件的临时路径,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getFileInfo": {
+    "description": "获取文件信息",
+    "prefix": "wx.getFileInfo",
+    "body": [
+      "wx.getFileInfo({",
+      "  filePath: '${1:filePath}', //本地文件路径,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getSavedFileList": {
+    "description": "获取本地已保存的文件列表",
+    "prefix": "wx.getSavedFileList",
+    "body": [
+      "wx.getSavedFileList({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getSavedFileInfo": {
+    "description": "获取本地文件的文件信息。此接口只能用于获取已保存到本地的文件，若需要获取临时文件信息，请使用 wx.getFileInfo 接口",
+    "prefix": "wx.getSavedFileInfo",
+    "body": [
+      "wx.getSavedFileInfo({",
+      "  filePath: '${1:filePath}', //文件路径,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.removeSavedFile": {
+    "description": "删除本地存储的文件",
+    "prefix": "wx.removeSavedFile",
+    "body": [
+      "wx.removeSavedFile({",
+      "  filePath: '${1:filePath}', //文件路径,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.openDocument": {
+    "description": "新开页面打开文档，支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx",
+    "prefix": "wx.openDocument",
+    "body": [
+      "wx.openDocument({",
+      "  filePath: '${1:filePath}', //文件路径，可通过 downFile 获得,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getSystemInfo": {
+    "description": "获取系统信息",
+    "prefix": "wx.getSystemInfo",
+    "body": [
+      "wx.getSystemInfo({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getSystemInfoSync": {
+    "description": "获取系统信息同步接口",
+    "prefix": "wx.getSystemInfoSync",
+    "body": [
+      "wx.getSystemInfoSync();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getNetworkType": {
+    "description": "获取网络类型",
+    "prefix": "wx.getNetworkType",
+    "body": [
+      "wx.getNetworkType({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onNetworkStatusChange": {
+    "description": "监听网络状态变化",
+    "prefix": "wx.onNetworkStatusChange",
+    "body": [
+      "wx.onNetworkStatusChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onAccelerometerChange": {
+    "description": "监听加速度数据，频率：5次/秒，接口调用后会自动开始监听，可使用 wx.stopAccelerometer 停止监听",
+    "prefix": "wx.onAccelerometerChange",
+    "body": [
+      "wx.onAccelerometerChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startAccelerometer": {
+    "description": "开始监听加速度数据",
+    "prefix": "wx.startAccelerometer",
+    "body": [
+      "wx.startAccelerometer();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopAccelerometer": {
+    "description": "停止监听加速度数据",
+    "prefix": "wx.stopAccelerometer",
+    "body": [
+      "wx.stopAccelerometer()"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onCompassChange": {
+    "description": "监听罗盘数据，频率：5次/秒，接口调用后会自动开始监听，可使用wx.stopCompass停止监听",
+    "prefix": "wx.onCompassChange",
+    "body": [
+      "wx.onCompassChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startCompass": {
+    "description": "开始监听罗盘数据",
+    "prefix": "wx.startCompass",
+    "body": [
+      "wx.startCompass()"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopCompass": {
+    "description": "停止监听罗盘数据",
+    "prefix": "wx.stopCompass",
+    "body": [
+      "wx.stopCompass();"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.scanCode": {
+    "description": "调起客户端扫码界面，扫码成功后返回对应的结果",
+    "prefix": "wx.scanCode",
+    "body": [
+      "wx.scanCode({",
+      "  onlyFromCamera: true, //是否只能从相机扫码，不允许从相册选择图片,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setClipboardData": {
+    "description": "设置系统剪贴板的内容",
+    "prefix": "wx.setClipboardData",
+    "body": [
+      "wx.setClipboardData({",
+      "  data: '${1:data}', //需要设置的内容,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getClipboardData": {
+    "description": "获取系统剪贴板内容",
+    "prefix": "wx.getClipboardData",
+    "body": [
+      "wx.getClipboardData({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.openBluetoothAdapter": {
+    "description": "初始化小程序蓝牙模块，生效周期为调用wx.openBluetoothAdapter至调用wx.closeBluetoothAdapter或小程序被销毁为止",
+    "prefix": "wx.openBluetoothAdapter",
+    "body": [
+      "wx.openBluetoothAdapter({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.closeBluetoothAdapter": {
+    "description": "关闭蓝牙模块，使其进入未初始化状态。调用该方法将断开所有已建立的链接并释放系统资源",
+    "prefix": "wx.closeBluetoothAdapter",
+    "body": [
+      "wx.closeBluetoothAdapter({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getBluetoothAdapterState": {
+    "description": "获取本机蓝牙适配器状态",
+    "prefix": "wx.getBluetoothAdapterState",
+    "body": [
+      "wx.getBluetoothAdapterState({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onBluetoothAdapterStateChange": {
+    "description": "监听蓝牙适配器状态变化事件",
+    "prefix": "wx.onBluetoothAdapterStateChange",
+    "body": [
+      "wx.onBluetoothAdapterStateChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startBluetoothDevicesDiscovery": {
+    "description": "开始搜寻附近的蓝牙外围设备。注意，该操作比较耗费系统资源，请在搜索并连接到设备后调用 stop 方法停止搜索",
+    "prefix": "wx.startBluetoothDevicesDiscovery",
+    "body": [
+      "wx.startBluetoothDevicesDiscovery({",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopBluetoothDevicesDiscovery": {
+    "description": "停止搜寻附近的蓝牙外围设备。若已经找到需要的蓝牙设备并不需要继续搜索时，建议调用该接口停止蓝牙搜索",
+    "prefix": "wx.stopBluetoothDevicesDiscovery",
+    "body": [
+      "wx.stopBluetoothDevicesDiscovery({",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getBluetoothDevices": {
+    "description": "获取在小程序蓝牙模块生效期间所有已发现的蓝牙设备，包括已经和本机处于连接状态的设备",
+    "prefix": "wx.getBluetoothDevices",
+    "body": [
+      "wx.getBluetoothDevices({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onBluetoothDeviceFound": {
+    "description": "监听寻找到新设备的事件",
+    "prefix": "wx.onBluetoothDeviceFound",
+    "body": [
+      "wx.onBluetoothDeviceFound(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getConnectedBluetoothDevices": {
+    "description": "根据 uuid 获取处于已连接状态的设备",
+    "prefix": "wx.getConnectedBluetoothDevices",
+    "body": [
+      "wx.getConnectedBluetoothDevices({",
+      "  services: '${1:services}', //蓝牙设备主 service 的 uuid 列表,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.createBLEConnection": {
+    "description": "连接低功耗蓝牙设备",
+    "prefix": "wx.createBLEConnection",
+    "body": [
+      "wx.createBLEConnection({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 getDevices 接口,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.closeBLEConnection": {
+    "description": "断开与低功耗蓝牙设备的连接",
+    "prefix": "wx.closeBLEConnection",
+    "body": [
+      "wx.closeBLEConnection({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 getDevices 接口,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onBLEConnectionStateChange": {
+    "description": "监听低功耗蓝牙连接状态的改变事件，包括开发者主动连接或断开连接，设备丢失，连接异常断开等等",
+    "prefix": "wx.onBLEConnectionStateChange",
+    "body": [
+      "wx.onBLEConnectionStateChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getBLEDeviceServices": {
+    "description": "获取蓝牙设备所有 service（服务）",
+    "prefix": "wx.getBLEDeviceServices",
+    "body": [
+      "wx.getBLEDeviceServices({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 getDevices 接口,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getBLEDeviceCharacteristics": {
+    "description": "获取蓝牙设备某个服务中的所有 characteristic（特征值）",
+    "prefix": "wx.getBLEDeviceCharacteristics",
+    "body": [
+      "wx.getBLEDeviceCharacteristics({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 device 对象,",
+      "  serviceId: '${2:serviceId}', //蓝牙服务 uuid,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.readBLECharacteristicValue": {
+    "description": "读取低功耗蓝牙设备的特征值的二进制数据值。注意：必须设备的特征值支持read才可以成功调用，具体参照 characteristic 的 properties 属性",
+    "prefix": "wx.readBLECharacteristicValue",
+    "body": [
+      "wx.readBLECharacteristicValue({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 device 对象,",
+      "  serviceId: '${2:serviceId}', //蓝牙服务 uuid,",
+      "  characteristicId: '${3:characteristicId}', //蓝牙特征值的 uuid,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.writeBLECharacteristicValue": {
+    "description": "读取低功耗蓝牙设备的特征值的二进制数据值。注意：必须设备的特征值支持read才可以成功调用，具体参照 characteristic 的 properties 属性",
+    "prefix": "wx.writeBLECharacteristicValue",
+    "body": [
+      "wx.writeBLECharacteristicValue({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 device 对象,",
+      "  serviceId: '${2:serviceId}', //蓝牙服务 uuid,",
+      "  characteristicId: '${3:characteristicId}', //蓝牙特征值的 uuid,",
+      "  value: '${4:value}', //蓝牙设备特征值对应的二进制值,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.notifyBLECharacteristicValueChange": {
+    "description": "启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值",
+    "prefix": "wx.notifyBLECharacteristicValueChange",
+    "body": [
+      "wx.notifyBLECharacteristicValueChange({",
+      "  deviceId: '${1:deviceId}', //蓝牙设备 id，参考 device 对象,",
+      "  serviceId: '${2:serviceId}', //蓝牙服务 uuid,",
+      "  characteristicId: '${3:characteristicId}', //蓝牙特征值的 uuid,",
+      "  state: true, //true: 启用 notify; false: 停用 notify,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onBLECharacteristicValueChange": {
+    "description": "监听低功耗蓝牙设备的特征值变化。必须先启用notify接口才能接收到设备推送的notification",
+    "prefix": "wx.onBLECharacteristicValueChange",
+    "body": [
+      "wx.onBLECharacteristicValueChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startBeaconDiscovery": {
+    "description": "开始搜索附近的iBeacon设备",
+    "prefix": "wx.startBeaconDiscovery",
+    "body": [
+      "wx.startBeaconDiscovery({",
+      "  uuids: '${1:uuids}', //iBeacon设备广播的 uuids,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopBeaconDiscovery": {
+    "description": "停止搜索附近的iBeacon设备",
+    "prefix": "wx.stopBeaconDiscovery",
+    "body": [
+      "wx.stopBeaconDiscovery()"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getBeacons": {
+    "description": "获取所有已搜索到的iBeacon设备",
+    "prefix": "wx.getBeacons",
+    "body": [
+      "wx.getBeacons({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onBeaconUpdate": {
+    "description": "监听 iBeacon 设备的更新事件",
+    "prefix": "wx.onBeaconUpdate",
+    "body": [
+      "wx.onBeaconUpdate(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onBeaconServiceChange": {
+    "description": "监听 iBeacon 服务的状态变化",
+    "prefix": "wx.onBeaconServiceChange",
+    "body": [
+      "wx.onBeaconServiceChange(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setScreenBrightness": {
+    "description": "设置屏幕亮度",
+    "prefix": "wx.setScreenBrightness",
+    "body": [
+      "wx.setScreenBrightness({",
+      "  value: 1 //屏幕亮度值，范围 0~1，0 最暗，1 最亮,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getScreenBrightness": {
+    "description": "获取屏幕亮度",
+    "prefix": "wx.getScreenBrightness",
+    "body": [
+      "wx.getScreenBrightness({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setKeepScreenOn": {
+    "description": "设置是否保持常亮状态。仅在当前小程序生效，离开小程序后设置失效",
+    "prefix": "wx.setKeepScreenOn",
+    "body": [
+      "wx.setKeepScreenOn({",
+      "  keepScreenOn: true //是否保持屏幕常亮,",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onUserCaptureScreen": {
+    "description": "监听用户主动截屏事件，用户使用系统截屏按键截屏时触发此事件",
+    "prefix": "wx.onUserCaptureScreen",
+    "body": [
+      "wx.onUserCaptureScreen(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.vibrateLong": {
+    "description": "使手机发生较长时间的振动（400ms）",
+    "prefix": "wx.vibrateLong",
+    "body": [
+      "wx.vibrateLong()"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.vibrateShort": {
+    "description": "使手机发生较短时间的振动（15ms）",
+    "prefix": "wx.vibrateShort",
+    "body": [
+      "wx.vibrateShort()"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getHCEState": {
+    "description": "判断当前设备是否支持 HCE 能力",
+    "prefix": "wx.getHCEState",
+    "body": [
+      "wx.getHCEState({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startHCE": {
+    "description": "初始化 NFC 模块",
+    "prefix": "wx.startHCE",
+    "body": [
+      "wx.startHCE({",
+      "  aid_list: '${1:aid_list}', //需要注册到系统的 AID 列表，每个 AID 为 String 类型,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopHCE": {
+    "description": "关闭 NFC 模块 仅在安卓系统下有效",
+    "prefix": "wx.stopHCE",
+    "body": [
+      "wx.stopHCE({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onHCEMessage": {
+    "description": "监听 NFC 设备的消息回调，并在回调中处理",
+    "prefix": "wx.onHCEMessage",
+    "body": [
+      "wx.onHCEMessage(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.sendHCEMessage": {
+    "description": "发送 NFC 消息。仅在安卓系统下有效",
+    "prefix": "wx.sendHCEMessage",
+    "body": [
+      "wx.sendHCEMessage({",
+      "  data: '${1:data}', //二进制数据,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.startWifi": {
+    "description": "初始化 Wi-Fi 模块",
+    "prefix": "wx.startWifi",
+    "body": [
+      "wx.startWifi({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.stopWifi": {
+    "description": "关闭 Wi-Fi 模块",
+    "prefix": "wx.stopWifi",
+    "body": [
+      "wx.stopWifi({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.connectWifi": {
+    "description": "连接 Wi-Fi。若已知 Wi-Fi 信息，可以直接利用该接口连接。仅 Android 与 iOS 11 以上版本支持",
+    "prefix": "wx.connectWifi",
+    "body": [
+      "wx.connectWifi({",
+      "  SSID: '${1:SSID}', //Wi-Fi 设备ssid,",
+      "  BSSID: '${2:BSSID}', //Wi-Fi 设备BSSID,",
+      "  password: '${3:password}', //Wi-Fi 设备password,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getWifiList": {
+    "description": "请求获取 Wi-Fi 列表",
+    "prefix": "wx.getWifiList",
+    "body": [
+      "wx.getWifiList({",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.getConnectedWifi": {
+    "description": "获取已连接中的 Wi-Fi 信息",
+    "prefix": "wx.getConnectedWifi",
+    "body": [
+      "wx.getConnectedWifi({ success: res => {} });"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onGetWifiList": {
+    "description": "监听在获取到 Wi-Fi 列表数据时的事件，在回调中将返回 wifiList",
+    "prefix": "wx.onGetWifiList",
+    "body": [
+      "wx.onGetWifiList(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.onWifiConnected": {
+    "description": "监听连接上 Wi-Fi 的事件",
+    "prefix": "wx.onWifiConnected",
+    "body": [
+      "wx.onWifiConnected(res => {});"
+    ],
+    "scope": "javascript,typescript"
+  },
+  "wx.setWifiList": {
+    "description": "iOS特有接口 在 onGetWifiList 回调后，利用接口设置 wifiList 中 AP 的相关信息",
+    "prefix": "wx.setWifiList",
+    "body": [
+      "wx.setWifiList({",
+      "  wifiList: '${1:wifiList}', //提供预设的 Wi-Fi 信息列表,",
+      "  success: res => {}",
+      "});"
+    ],
+    "scope": "javascript,typescript"
+  }
+}

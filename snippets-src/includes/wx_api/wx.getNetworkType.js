@@ -1,0 +1,1 @@
+wx.getNetworkType({ success: res => {} });

@@ -1,0 +1,1 @@
+wx.getSystemInfo({ success: res => {} });

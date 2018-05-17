@@ -1,0 +1,7 @@
+<view class="weui-cell weui-cell_select">
+  <view class="weui-cell__bd">
+    <picker @change="${1:bindAccountChange}" value="{{${2:accountIndex}}}" range="{{${3:accounts}}}">
+      <view class="weui-select">{{${4:accounts[accountIndex]}}}</view>
+    </picker>
+  </view>
+</view>

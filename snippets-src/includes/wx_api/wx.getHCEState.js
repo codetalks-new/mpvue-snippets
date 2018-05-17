@@ -1,0 +1,1 @@
+wx.getHCEState({ success: res => {} });

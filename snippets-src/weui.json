@@ -1,0 +1,101 @@
+{
+  "weui.upload":{
+    "description": "weui 上传示范页"
+  },
+  "weui.btn": {
+    "description": "weui 按钮"
+  },
+  "weui.agree": {
+    "description": "weui 同意单项选择"
+  },
+  "weui.btnarea": {
+    "description": "weui 主要操作按钮栏"
+  },
+  "weui.cellgroup": {
+    "description": "weui 列表组"
+  },
+  "weui.cellgroup.radio": {
+    "description": "weui 带单选的列表组"
+  },
+  "weui.cellgroup.checkbox": {
+    "description": "weui 带复选的列表组"
+  },
+  "weui.cellgroup.title": {
+    "description": "weui 带说明的列表组"
+  },
+  "weui.cell.input": {
+    "description": "weui 带说明输入框列表项"
+  },
+  "weui.cell.input.warn": {
+    "description": "weui 带说明、输入框、带错误提示列表项"
+  },
+  "weui.cell.phone": {
+    "description": "weui 手机输入框列表项"
+  },
+  "weui.cell.i18nphone": {
+    "description": "weui 可选国家的手机输入框列表项"
+  },
+  "weui.cell.vcode": {
+    "description": "weui 验证码输入框列表项"
+  },
+  "weui.cell.textarea": {
+    "description": "weui 文本域列表项"
+  },
+  "weui.cell.switch": {
+    "description": "weui 开关列表项"
+  },
+  "weui.cell.date": {
+    "description": "weui 日期选择列表项"
+  },
+  "weui.cell.time": {
+    "description": "weui  时间选择列表项"
+  },
+  "weui.cell.select": {
+    "description": "weui  选择列表项"
+  },
+  "weui.cell.select.label": {
+    "description": "weui   带标签的选择列表项"
+  },
+  "weui.cell.basic": {
+    "description": "weui 带说明的列表项"
+  },
+  "weui.cell.icon": {
+    "description": "weui 带图标、说明的列表项"
+  },
+  "weui.cell.access": {
+    "description": "weui 带说明的跳转列表项"
+  },
+  "weui.cell.access.icon": {
+    "description": "weui 带图标、说明的跳转列表项"
+  },
+  "weui.panel.imgtext": {
+    "description": "weui 图文组合列表"
+  },
+  "weui.panel.icontext": {
+    "description": "weui 小图文组合列表"
+  },
+  "weui.panel.text": {
+    "description": "weui 文字组合列表"
+  },
+  "weui.panel.textinfos": {
+    "description": "weui 文字列表附来源"
+  },
+  "weui.grids": {
+    "description": "weui 九宫格"
+  },
+  "weui.searchbar": {
+    "description": "weui 搜索栏"
+  },
+  "weui.navbar": {
+    "description": "weui  带导航栏的页面"
+  },
+  "weui.msgpage": {
+    "description": "weui  消息页面"
+  },
+  "weui.loadmore": {
+    "description": "weui  加载更多"
+  },
+  "weui.footer": {
+    "description": "weui  底部说明"
+  }
+}

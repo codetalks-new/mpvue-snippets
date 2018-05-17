@@ -1,0 +1,1 @@
+wx.getStorageInfo({ success: res => {} });

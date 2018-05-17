@@ -1,0 +1,1 @@
+wx.closeBluetoothAdapter({ success: res => {} });

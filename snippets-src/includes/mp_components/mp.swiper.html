@@ -1,0 +1,7 @@
+<swiper indicator-dots autoplay circular>
+    <block wx:for="{{${1:items}}}" wx:key="">
+        <swiper-item>
+            <image mode="${2:aspectFill}" src="{{${3:item}.src}}"></image>
+        </swiper-item>
+    </block>
+</swiper>

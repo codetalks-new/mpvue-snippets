@@ -1,0 +1,1 @@
+wx.getWeRunData({ success: res => {} });

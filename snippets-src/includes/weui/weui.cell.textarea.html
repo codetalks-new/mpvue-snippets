@@ -1,0 +1,11 @@
+<view class="weui-cell">
+  <view class="weui-cell__bd">
+    <textarea class="weui-textarea" style="height: 3.3em"
+    @blur="bindTextAreaBlur"
+    value="$1"
+    placeholder="${2:占位符}"
+    auto-height="${3|true,false|}"
+    />
+    <view class="weui-textarea-counter">0/200</view>
+  </view>
+</view>

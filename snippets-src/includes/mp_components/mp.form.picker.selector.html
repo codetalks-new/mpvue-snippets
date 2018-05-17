@@ -1,0 +1,8 @@
+<picker
+  @change="bindPickerChange"
+  value="{{${1:index}}}"
+  range="{{${2:array}}}">
+  <view class="picker">
+    当前选择：{{${2:array}[${1:index}]}}
+  </view>
+</picker>

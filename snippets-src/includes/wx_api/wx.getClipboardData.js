@@ -1,0 +1,1 @@
+wx.getClipboardData({ success: res => {} });

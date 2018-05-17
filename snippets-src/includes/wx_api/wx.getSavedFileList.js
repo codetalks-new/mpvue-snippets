@@ -1,0 +1,1 @@
+wx.getSavedFileList({ success: res => {} });

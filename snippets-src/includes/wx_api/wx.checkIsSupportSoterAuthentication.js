@@ -1,0 +1,3 @@
+wx.checkIsSupportSoterAuthentication({
+  success: res => {}
+});

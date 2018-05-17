@@ -1,0 +1,1 @@
+wx.navigateBackMiniProgram({ success: res => {} });

@@ -1,0 +1,10 @@
+<video
+  src="{{$1}}"
+  controls="${2:true}"
+  autoplay="${3:true}"
+  loop="${4:true}"
+  objectFit="${5|contain,fill,cover|}"
+  @pause="pause"
+  @waiting="waiting"
+  @error="error">
+</video>

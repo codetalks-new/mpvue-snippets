@@ -1,0 +1,3 @@
+wx.startBluetoothDevicesDiscovery({
+  success: res => {}
+});

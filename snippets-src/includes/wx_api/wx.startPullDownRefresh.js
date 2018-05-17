@@ -1,0 +1,1 @@
+wx.startPullDownRefresh({ success: res => {} });

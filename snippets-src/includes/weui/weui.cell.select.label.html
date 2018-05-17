@@ -1,0 +1,10 @@
+<view class="weui-cell weui-cell_select">
+  <view class="weui-cell__hd weui-cell__hd_in-select-after">
+    <view class="weui-label">${1:国家/地区}</view>
+  </view>
+  <view class="weui-cell__bd">
+    <picker @change="${2:bindCountryChange}" value="{{${3:countryIndex}}}" range="{{${4:countries}}}">
+      <view class="weui-select weui-select_in-select-after">{{${5:countries[countryIndex]}}}</view>
+    </picker>
+  </view>
+</view>

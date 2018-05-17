@@ -1,0 +1,12 @@
+<view class="weui-cells weui-cells_after-title">
+  <radio-group @change="${1:radioChange}">
+    <label class="weui-cell weui-check__label" wx:for="{{${2:radioItems}}}" wx:key="${3:value}">
+      <radio class="weui-check" value="{{${4:item.value}}}" checked="{{${5:item.checked}}}" />
+
+      <view class="weui-cell__bd">{{${6:item.name}}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{${7:item.checked}}}">
+        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+      </view>
+    </label>
+  </radio-group>
+</view>

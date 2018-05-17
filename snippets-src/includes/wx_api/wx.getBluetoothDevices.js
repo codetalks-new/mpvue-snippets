@@ -1,0 +1,1 @@
+wx.getBluetoothDevices({ success: res => {} });

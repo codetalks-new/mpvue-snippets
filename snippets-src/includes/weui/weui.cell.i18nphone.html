@@ -1,0 +1,10 @@
+<view class="weui-cell weui-cell_select">
+  <view class="weui-cell__hd" style="width: 105px">
+    <picker @change="${1:bindCountryCodeChange}" value="{{${2:countryCodeIndex}}}" range="{{${3:countryCodes}}}">
+      <view class="weui-select">{{${4:countryCodes[countryCodeIndex]}}}</view>
+    </picker>
+  </view>
+  <view class="weui-cell__bd weui-cell__bd_in-select-before">
+    <input class="weui-input" placeholder="请输入号码" />
+  </view>
+</view>

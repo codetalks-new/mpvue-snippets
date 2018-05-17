@@ -1,0 +1,147 @@
+{
+  "mp.page": {
+    "description": "快速添加页面代码"
+  },
+  "mp.component": {
+    "description": "快速组件代码"
+  },
+  "mp.block": {
+    "description": "循环渲染"
+  },
+  "mp.repeat": {
+    "description": "循环渲染 代替block"
+  },
+  "mp.view": {
+    "body": ["<view>{{$1}}</view>"],
+    "description": "视图容器"
+  },
+  "mp.view.tap": {
+    "body": ["<view @tap=\"$1\">{{$2}}</view>"],
+    "description": "视图容器-事件"
+  },
+  "mp.view.all": {
+    "description": "视图容器-全部"
+  },
+  "mp.scroll-view": {
+    "body": ["<scroll-view>$1</scroll-view>"],
+    "description": "可滚动视图区域"
+  },
+  "mp.scroll-view.x": {
+    "description": "可滚动视图区域-横向"
+  },
+  "mp.scroll-view.y": {
+    "description": "可滚动视图区域-纵向"
+  },
+  "mp.scroll-view.all": {
+    "description": "可滚动视图区域-全部"
+  },
+  "mp.swiper": {
+    "description": "可滚动视图区域-全部"
+  },
+  "mp.icon": {
+    "description": "图标"
+  },
+  "mp.rich-text.node": {
+    "body": ["<rich-text type=\"node\" nodes=\"{{$1}}\"></rich-text>"],
+    "description": "富文本"
+  },
+  "mp.rich-text.text": {
+    "body": ["<rich-text type=\"text\" nodes=\"{{$1}}\"></rich-text>"],
+    "description": "富文本"
+  },
+  "mp.progress": {
+    "description": "进度条"
+  },
+  "mp.form": {
+    "description": "表单"
+  },
+  "mp.form.button": {
+    "description": "表单"
+  },
+  "mp.form.button.contact": {
+    "description": "表单.打开客服会话"
+  },
+  "mp.form.button.contact.card": {
+    "description": "表单.打开客服会话 显示消息卡片"
+  },
+  "mp.form.button.share": {
+    "description": "表单.触发用户转发"
+  },
+  "mp.form.button.getUserInfo": {
+    "description": "表单.获取用户信息,可以从bindgetuserinfo回调中获取到用户信息"
+  },
+  "mp.form.button.getPhoneNumber": {
+    "description":
+      "表单.获取用户手机号,可以从bindgetphonenumber回调中获取到用户信息"
+  },
+  "mp.form.button.launchApp": {
+    "description": "表单.打开APP,可以通过app-parameter属性设定向APP传的参数"
+  },
+  "mp.form.checkbox": {
+    "description": "表单.多选框"
+  },
+  "mp.form.input": {
+    "description": "表单.输入框"
+  },
+  "mp.form.lable": {
+    "body": ["<lable for=\"$1\">$2</lable>"],
+    "description": "表单.标签"
+  },
+  "mp.form.picker.selector": {
+    "description": "表单.选择器.普通"
+  },
+  "mp.form.picker.multiSelector": {
+    "description": "表单.选择器.多列选择"
+  },
+  "mp.form.picker.time": {
+    "description": "表单.选择器.时间选择"
+  },
+  "mp.form.picker.date": {
+    "description": "表单.选择器.日期选择"
+  },
+  "mp.form.picker.region": {
+    "description": "表单.选择器.省市区选择"
+  },
+  "mp.form.picker-view": {
+    "description": "表单.嵌入页面的滚动选择器"
+  },
+  "mp.form.radio": {
+    "description": "表单.单选框"
+  },
+  "mp.form.slider": {
+    "description": "表单.滑动选择器"
+  },
+  "mp.form.switch": {
+    "description": "表单.开关选择器"
+  },
+  "mp.form.textarea": {
+    "description": "表单.多行输入框"
+  },
+  "mp.navigator": {
+    "description": "导航"
+  },
+  "mp.image": {
+    "description": "图片"
+  },
+  "mp.video": {
+    "description": "视频"
+  },
+  "mp.camera": {
+    "description": "相机"
+  },
+  "mp.live-player": {
+    "description": "实时音视频播放"
+  },
+  "mp.live-pusher": {
+    "description": "实时音视频录制"
+  },
+  "mp.web-view": {
+    "description": "网页容器"
+  },
+  "mp.open-data": {
+    "description": "开放能力"
+  },
+  "mp.map": {
+    "description": "地图"
+  }
+}

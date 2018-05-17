@@ -1,0 +1,1 @@
+wx.getScreenBrightness({ success: res => {} });

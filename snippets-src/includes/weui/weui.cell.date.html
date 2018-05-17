@@ -1,0 +1,16 @@
+<view class="weui-cell weui-cell_input">
+  <view class="weui-cell__hd">
+    <view class="weui-label">日期</view>
+  </view>
+  <view class="weui-cell__bd">
+    <picker
+      mode="date"
+      value="{{${1:date}}}"
+      start="${2:2015-09-01}"
+      end="${3:2017-09-01}"
+      @change="${4:bindDateChange}"
+      >
+      <view class="weui-input">{{${0:date}}}</view>
+    </picker>
+  </view>
+</view>

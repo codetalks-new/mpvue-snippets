@@ -1,0 +1,10 @@
+ <picker
+  mode="multiSelector"
+  @change="bindMultiPickerChange"
+  value="{{${1:index}}}"
+  range="{{${2:array}}}"
+  >
+    <view class="picker">
+      当前选择：{{${2:array}[0][${1:index}[0]]}},{{${2:array}[1][${1:index}[1]]}},{{${2:array}[2][${1:index}[2]]}}
+    </view>
+</picker>

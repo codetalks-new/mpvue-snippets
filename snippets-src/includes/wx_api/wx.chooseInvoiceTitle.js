@@ -1,0 +1,1 @@
+wx.chooseInvoiceTitle({ success: res => {} });

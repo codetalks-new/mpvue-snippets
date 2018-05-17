@@ -1,0 +1,1 @@
+wx.stopWifi({ success: res => {} });

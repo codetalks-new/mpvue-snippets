@@ -1,0 +1,1 @@
+wx.getExtConfig({ success: res => {} });
