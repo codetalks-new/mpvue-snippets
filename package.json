@@ -2,7 +2,7 @@
   "name": "mpvue-snippets",
   "displayName": "mpvue snippets",
   "description": "mpvue 兼容的 微信小程序：API 代码片段，组件代码片段(mpvue 语法），weui 框架代码片段",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "banxi",
   "icon": "images/logo.png",
   "homepage": "https://github.com/banxi1988/mpvue-snippets",
