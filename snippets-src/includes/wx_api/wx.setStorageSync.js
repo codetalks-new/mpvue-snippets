@@ -1,4 +1,2 @@
-wx.setStorageSync({
-  key: '${1:key}',
-  value: '${2:value}'
+wx.setStorageSync('${1:key}','${2:value}')
 });

@@ -11,6 +11,7 @@
 ![feature mp_components](https://raw.githubusercontent.com/banxi1988/mpvue-snippets/master/images/mp_components.png)
 
 ![feature weui](https://raw.githubusercontent.com/banxi1988/mpvue-snippets/master/images/weui.png)
+
 ![feature mp_configs](https://raw.githubusercontent.com/banxi1988/mpvue-snippets/master/images/mp_configs.png)
 
 

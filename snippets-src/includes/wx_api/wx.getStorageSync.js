@@ -1,1 +1,1 @@
-wx.getStorageSync({ key: '${1:key}' });
+wx.getStorageSync('${1:key}');

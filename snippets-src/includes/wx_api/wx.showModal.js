@@ -6,5 +6,11 @@ wx.showModal({
   cancelColor: '${4:#000000}', //取消按钮的文字颜色,
   confirmText: '${5:确定}', //确定按钮的文字，默认为取消，最多 4 个字符,
   confirmColor: '${6:#3CC51F}', //确定按钮的文字颜色,
-  success: res => {}
+  success: res => {
+    if (res.confirm) {
+      console.log('用户点击确定')
+    } else if (res.cancel) {
+      console.log('用户点击取消')
+    }
+  }
 });
