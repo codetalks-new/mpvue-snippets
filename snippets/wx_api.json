@@ -496,7 +496,13 @@
       "  cancelColor: '${4:#000000}', //取消按钮的文字颜色,",
       "  confirmText: '${5:确定}', //确定按钮的文字，默认为取消，最多 4 个字符,",
       "  confirmColor: '${6:#3CC51F}', //确定按钮的文字颜色,",
-      "  success: res => {}",
+      "  success: res => {",
+      "    if (res.confirm) {",
+      "      console.log('用户点击确定')",
+      "    } else if (res.cancel) {",
+      "      console.log('用户点击取消')",
+      "    }",
+      "  }",
       "});"
     ],
     "scope": "javascript,typescript"
@@ -735,7 +741,16 @@
     "body": [
       "wx.getLocation({",
       "  type: '${1|wgs84,gcj02|}', //默认为 wgs84 返回 gps 坐标，gcj02 返回可用于wx.openLocation的坐标,",
-      "  success: res => {}",
+      "  success: res => {",
+      "    console.info(\"getLocation success: \", res);",
+      "    const latitude = res.latitude",
+      "    const longitude = res.longitude",
+      "    const speed = res.speed",
+      "    const accuracy = res.accuracy",
+      "  },",
+      "  fail: () => {",
+      "    console.log(\"getLocation failed\")",
+      "  }",
       "});"
     ],
     "scope": "javascript,typescript"
@@ -778,9 +793,7 @@
     "description": "将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口",
     "prefix": "wx.setStorageSync",
     "body": [
-      "wx.setStorageSync({",
-      "  key: '${1:key}',",
-      "  value: '${2:value}'",
+      "wx.setStorageSync('${1:key}','${2:value}')",
       "});"
     ],
     "scope": "javascript,typescript"
@@ -804,7 +817,7 @@
     "description": "从本地缓存中同步获取指定 key 对应的内容",
     "prefix": "wx.getStorageSync",
     "body": [
-      "wx.getStorageSync({ key: '${1:key}' });"
+      "wx.getStorageSync('${1:key}');"
     ],
     "scope": "javascript,typescript"
   },
