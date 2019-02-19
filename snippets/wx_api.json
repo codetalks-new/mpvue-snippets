@@ -784,7 +784,7 @@
     "body": [
       "wx.setStorage({",
       "  key: '${1:key}',",
-      "  value: '${2:value}'",
+      "  data: '${2:data}'",
       "});"
     ],
     "scope": "javascript,typescript"
@@ -793,7 +793,7 @@
     "description": "将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口",
     "prefix": "wx.setStorageSync",
     "body": [
-      "wx.setStorageSync('${1:key}','${2:value}')",
+      "wx.setStorageSync('${1:key}','${2:data}')",
       "});"
     ],
     "scope": "javascript,typescript"
