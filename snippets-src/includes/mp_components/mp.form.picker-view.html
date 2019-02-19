@@ -1,5 +1,5 @@
-<picker-view @change="bindChange" value="{{${1:items}}}">
+<picker-view @change="bindChange" :value="${1:items}">
   <picker-view-column>
-    <view wx:for="{{${2:item}}}">{{${2:item}}}</view>
+    <view wx:for="{{${2:item}}}">{{$2}}</view>
   </picker-view-column>
 </picker-view>"
