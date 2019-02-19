@@ -453,15 +453,9 @@
     "description": "表单.选择器.日期选择",
     "prefix": "mp.form.picker.date",
     "body": [
-      "<picker",
-      "  mode=\"date\"",
-      "  @change=\"bindPickerChange\"",
-      "  value=\"{{${1:date}}}\"",
-      "  start=\"2015-09-0\"",
-      "  end=\"2017-09-01\"",
-      "  >",
+      "<picker mode=\"date\" @change=\"bindPickerChange\" :value=\"${1:date}\" start=\"2015-09-0\" end=\"2017-09-01\">",
       "  <view class=\"picker\">",
-      "    当前选择：{{${1:date}}}",
+      "    当前选择：{{$1}}",
       "  </view>",
       "</picker>"
     ],
@@ -483,9 +477,9 @@
     "description": "表单.嵌入页面的滚动选择器",
     "prefix": "mp.form.picker-view",
     "body": [
-      "<picker-view @change=\"bindChange\" value=\"{{${1:items}}}\">",
+      "<picker-view @change=\"bindChange\" :value=\"${1:items}\">",
       "  <picker-view-column>",
-      "    <view wx:for=\"{{${2:item}}}\">{{${2:item}}}</view>",
+      "    <view wx:for=\"{{${2:item}}}\">{{$2}}</view>",
       "  </picker-view-column>",
       "</picker-view>\""
     ],

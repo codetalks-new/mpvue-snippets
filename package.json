@@ -1,68 +1,68 @@
 {
-    "name": "mpvue-snippets",
-    "displayName": "mpvue snippets",
-    "description": "mpvue 兼容的 微信小程序：API 代码片段，组件代码片段(mpvue 语法），weui 框架代码片段",
-    "version": "1.2.1",
-    "publisher": "banxi",
-    "icon": "images/logo.png",
-    "homepage": "https://github.com/banxi1988/mpvue-snippets",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/banxi1988/mpvue-snippets.git"
-    },
-    "license": "MIT",
-    "engines": {
-        "vscode": "^1.3.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "vue",
-                "path": "./snippets/mp_components.json"
-            },
-            {
-                "language": "html",
-                "path": "./snippets/mp_components.json"
-            },
-            {
-                "language": "vue-html",
-                "path": "./snippets/mp_components.json"
-            },
-            {
-                "language": "vue",
-                "path": "./snippets/weui.json"
-            },
-            {
-                "language": "html",
-                "path": "./snippets/weui.json"
-            },
-            {
-                "language": "vue-html",
-                "path": "./snippets/weui.json"
-            },
-            {
-                "language": "javascript",
-                "path": "./snippets/wx_api.json"
-            },
-            {
-                "language": "typescript",
-                "path": "./snippets/wx_api.json"
-            },
-            {
-                "language": "javascript",
-                "path": "./snippets/mp_configs.json"
-            },
-            {
-                "language": "typescript",
-                "path": "./snippets/mp_configs.json"
-            }
-        ]
-    },
-    "scripts": {
-        "build": "node  ./snippets-src/make_snippets.js",
-        "vscode:prepublish": "node  ./snippets-src/make_snippets.js"
-    }
+  "name": "mpvue-snippets",
+  "displayName": "mpvue snippets",
+  "description": "mpvue 兼容的 微信小程序：API 代码片段，组件代码片段(mpvue 语法），weui 框架代码片段",
+  "version": "1.2.2",
+  "publisher": "banxi",
+  "icon": "images/logo.png",
+  "homepage": "https://github.com/banxi1988/mpvue-snippets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/banxi1988/mpvue-snippets.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.3.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "vue",
+        "path": "./snippets/mp_components.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/mp_components.json"
+      },
+      {
+        "language": "vue-html",
+        "path": "./snippets/mp_components.json"
+      },
+      {
+        "language": "vue",
+        "path": "./snippets/weui.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/weui.json"
+      },
+      {
+        "language": "vue-html",
+        "path": "./snippets/weui.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/wx_api.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/wx_api.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/mp_configs.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/mp_configs.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node  ./snippets-src/make_snippets.js",
+    "vscode:prepublish": "node  ./snippets-src/make_snippets.js"
+  }
 }
